@@ -1,0 +1,25 @@
+<h1 class="text-center flex-1">POKEMON</h1>
+<section class="space-y-4 max-w-5xl mx-auto border rounded-lg p-6 ">
+    @for (pokemon of pokemons; track $index) {
+        <div class="relative border rounded-lg p-6 flex flex-col sm:flex-row gap-6 sm:gap-8 bg-gradient-to-t from-gray-100/50">
+            <nav>{{ pokemon.name | titlecase }}</nav>
+            <button routerLink="Details" class="bg-black text-white py-2 px-6 rounded-lg hover:bg-teal-600">
+                Details
+            </button>
+        </div>
+    }
+</section>
+<h1 class="text-center flex-1">HABILIDADES</h1>
+<section class="space-y-4 max-w-5xl mx-auto border rounded-lg p-6 ">
+    @for (ability of ability; track $index) {
+            <nav>{{ ability.name }}</nav>
+    }
+</section>
+<h1 class="text-center flex-1">VERSIONES</h1>
+<section class="space-y-4 max-w-5xl mx-auto border rounded-lg p-6 ">
+    @for (games of games; track $index) {
+        <div class="relative border rounded-lg p-6 flex flex-col sm:flex-row gap-6 sm:gap-8 bg-gradient-to-t from-gray-100/50">
+            <nav>{{ games.name }}</nav>
+        </div>
+    }
+</section>
