@@ -10,13 +10,11 @@ export class FakestoreService {
 
   constructor(private http: HttpClient) { } 
 
-  getPokemons(): Observable<any> {
-    return this.http.get(`${this.apiUrl}/pokemon`);
+  getPokemons(limit: number = 15): Observable<any> {
+    return this.http.get(`${this.apiUrl}/pokemon?limit=${limit}`);
   }
-  getGames(): Observable<any> {
-    return this.http.get(`${this.apiUrl}/version`)
-  }
-  getAbility(): Observable<any> {
-    return this.http.get(`${this.apiUrl}/ability`)
+  
+  getPokemonDetails(name: string): Observable<any> {
+    return this.http.get(`${this.apiUrl}/pokemon/${name}`);
   }
 }
