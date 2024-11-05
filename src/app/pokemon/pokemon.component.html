@@ -1,25 +1,23 @@
-<h1 class="text-center flex-1">POKEMON</h1>
-<section class="space-y-4 max-w-5xl mx-auto border rounded-lg p-6 ">
-    @for (pokemon of pokemons; track $index) {
-        <div class="relative border rounded-lg p-6 flex flex-col sm:flex-row gap-6 sm:gap-8 bg-gradient-to-t from-gray-100/50">
-            <nav>{{ pokemon.name | titlecase }}</nav>
-            <button routerLink="Details" class="bg-black text-white py-2 px-6 rounded-lg hover:bg-teal-600">
-                Details
+<div>
+    <h1>Listado de Pokémons</h1>
+    <div>
+      <div>
+        @for (pokemon of pokemons; track $index) {
+            <h2  (click)="navigateToDetail(pokemon.name)">{{ pokemon.name | titlecase }}</h2>
+            <button (click)="toggleFavorite(pokemon)">
+            <svg class="w-6 h-6 text-yellow-500" fill="currentColor" viewBox="0 0 20 20">
+                @if (favorites.has(pokemon.name)) {
+                    <path d="M9.049 2.927c.3-1.043 1.902-1.043 2.202 0l1.518 5.286h5.498c1.104 0 1.561 1.421.764 2.077l-4.466 3.64 1.518 5.287c.3 1.042-.867 1.923-1.763 1.337L10 15.347l-4.466 3.637c-.896.586-2.063-.295-1.763-1.337l1.518-5.287-4.466-3.64c-.797-.656-.34-2.077.764-2.077h5.498L9.049 2.927z"></path>        
+                }
+            </svg>
+              <svg class="w-6 h-6 text-gray-400 hover:text-yellow-500" fill="currentColor" viewBox="0 0 20 20">
+                @if (!favorites.has(pokemon.name)) {
+                    <path d="M9.049 2.927c.3-1.043 1.902-1.043 2.202 0l1.518 5.286h5.498c1.104 0 1.561 1.421.764 2.077l-4.466 3.64 1.518 5.287c.3 1.042-.867 1.923-1.763 1.337L10 15.347l-4.466 3.637c-.896.586-2.063-.295-1.763-1.337l1.518-5.287-4.466-3.64c-.797-.656-.34-2.077.764-2.077h5.498L9.049 2.927z"></path>
+
+                }
+              </svg>
             </button>
-        </div>
-    }
-</section>
-<h1 class="text-center flex-1">HABILIDADES</h1>
-<section class="space-y-4 max-w-5xl mx-auto border rounded-lg p-6 ">
-    @for (ability of ability; track $index) {
-            <nav>{{ ability.name }}</nav>
-    }
-</section>
-<h1 class="text-center flex-1">VERSIONES</h1>
-<section class="space-y-4 max-w-5xl mx-auto border rounded-lg p-6 ">
-    @for (games of games; track $index) {
-        <div class="relative border rounded-lg p-6 flex flex-col sm:flex-row gap-6 sm:gap-8 bg-gradient-to-t from-gray-100/50">
-            <nav>{{ games.name }}</nav>
-        </div>
-    }
-</section>
+            }
+      </div>
+    </div>
+</div>
